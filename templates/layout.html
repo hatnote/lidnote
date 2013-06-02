@@ -13,7 +13,7 @@
         var index = Math.floor(Math.random() * msgs.length)
         return msgs[index]
     }
-    var congradulate = function () {
+    var congratulate = function () {
         var msgs = [' - Correct. Great job!',
                     ' - Correct. Way to go!']
         var index = Math.floor(Math.random() * msgs.length)
@@ -31,7 +31,7 @@
         })
         .click(function() {
             if ($(this).hasClass('correct')) {
-                $(this).children('span.message').html(congradulate())
+                $(this).children('span.message').html(congratulate())
                 $(this).addClass('success')
                 $('.load-more').addClass('bigger')
             } else {
