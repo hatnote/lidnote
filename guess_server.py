@@ -9,13 +9,13 @@ from collections import namedtuple
 from pyquery import PyQuery
 
 import wapiti
-from clastic import Application
+from clastic import Application, json_response
 from clastic.render.mako_templates import MakoRenderFactory
 
 
 WikiLangInfo = namedtuple('WikiLangInfo',
                           'name, en_article_name, shortcode, article_count, '
-                          'active_user_count, depth')
+                          'active_user_count, depth, description')
 
 
 _CURDIR = os.path.abspath(os.path.dirname(__file__))
@@ -103,7 +103,8 @@ def language_game(attempt=0):
 
 
 def create_game():
-    routes = [('/', language_game, 'layout.html')]
+    routes = [('/json', language_game, json_response),
+              ('/', language_game, 'layout.html')]
     mako_render = MakoRenderFactory(_TEMPLATE_PATH)
     return Application(routes, None, mako_render)
 
