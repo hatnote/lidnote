@@ -11,7 +11,6 @@ from pyquery import PyQuery
 import wapiti
 from clastic import Application, json_response
 from clastic.static import StaticApplication  # mostly for dev
-from clastic.render.mako_templates import MakoRenderFactory
 
 
 WikiLangInfo = namedtuple('WikiLangInfo',
@@ -20,7 +19,6 @@ WikiLangInfo = namedtuple('WikiLangInfo',
 
 
 _CURDIR = os.path.abspath(os.path.dirname(__file__))
-_TEMPLATE_PATH = pjoin(_CURDIR, 'templates')
 _STATIC_PATH = pjoin(_CURDIR, 'static')
 
 
@@ -105,11 +103,9 @@ def language_game(attempt=0):
 
 def create_game():
     sappy = StaticApplication(_STATIC_PATH)
-    routes = [('/json', language_game, json_response),
-              ('/', language_game, 'layout.html'),
+    routes = [('/', language_game, json_response),
               ('/static', sappy)]
-    mako_render = MakoRenderFactory(_TEMPLATE_PATH)
-    return Application(routes, None, mako_render)
+    return Application(routes)
 
 
 game_app = create_game()
