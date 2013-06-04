@@ -43,7 +43,7 @@
     }
 
     var load_new_question = function() {
-        $.getJSON('../json', function (data) {
+        $.getJSON('/api/', function (data) {
             console.log('Loaded new question');
             if (data['sample'].length < min_sample_len) {
                 console.log('Loading another question...')

@@ -103,8 +103,9 @@ def language_game(attempt=0):
 
 def create_game():
     sappy = StaticApplication(_STATIC_PATH)
-    routes = [('/', language_game, json_response),
-              ('/static', sappy)]
+    routes = [('/api/', language_game, json_response),
+              ('/api/<path:_ignored>', language_game, json_response),
+              ('/', sappy)]
     return Application(routes)
 
 
