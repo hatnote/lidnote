@@ -84,7 +84,7 @@
                             $(this).children('span.message').html(congradulate())
                             $(this).addClass('success')
                             $('#lang-facts').html("<p>" + data['correct_info']['description'] + " Learn more about <a href='http://en.wikipedia.org/wiki/" + data['correct_info']['en_article_name'] + "' target='_blank'>" + data['correct_info']['name'] + " language</a>.</p><p>The <a href='http://" + data['correct_info']['shortcode'] + ".wikipedia.org' target='_blank'>" + data['correct_info']['name'] + " Wikipedia</a> has <span class='fact'>" + data['correct_info']['article_count'] + " articles</span> and <span class='fact'>" + data['correct_info']['active_user_count'] + " active users</span>!</p>")
-                            $('#article-facts').html("<p>Read the full article on <a href='http://" + data['correct_info']['short_code'] + ".wikipedia.org/wiki/" + data['title'] + "' target='_blank'>" + data['title'] + "</a> in " + data['correct_info']['name'] + "!")
+                            $('#article-facts').html("<p>Read the full article on <a href='http://" + data['correct_info']['shortcode'] + ".wikipedia.org/wiki/" + data['title'] + "' target='_blank'>" + data['title'] + "</a> in " + data['correct_info']['name'] + "!")
                             $('.load-more').addClass('bigger')
                             update_score('correct');
                             solved = true;
